@@ -1,0 +1,154 @@
+run_para:
+  is_dask_mode: False
+  test_mode: True
+  test_nrows: 1000
+
+dask:
+  partitioned_chunksize: 2000
+  num_workers:
+
+product_label_column_name_sep: '@'
+
+standard_result_colname_dic:
+  customer_entity_index: 客户ID
+  time: 观测点(Cutoff)
+  churn: 流失标签
+  value: 商品购买标签
+  purchase: 购买标签
+
+problem_type_vs_label_type:
+  churn: classifier
+  purchase: classifier
+  value: regression
+  product_purchase: classifier
+  highvalue: classifier
+
+ana_type_vs_data_type:
+  datetime: datetime
+  numeric: float
+  categorical: varchar
+  boolean: bool
+  text: varchar
+  latlong: varchar
+
+dir:
+  base_project_dir: ../../pred/
+  base_project_dir_deploying: ../../pred_deploying/
+  sub_project_models_dir: models
+  sub_project_data_dir: data
+  sub_project_srcdata_dir: srcdata
+  sub_project_models_prediction_data_dir: prediction
+
+file_map:
+  label_extraction_model: label_extraction_model
+  label_result_df: label_result_df
+  label_statistics_df: label_statistics_df
+
+
+feature_extraction:
+  primitives_vs_show:
+    agg_primitives_vs:
+      All: all
+      Any: any
+      AvgTimeBetween: avg_time_between
+      Count: count
+      Entropy: entropy
+      First: first
+      Last: last
+      Max: max
+      Mean: mean
+      Median: median
+      Min: min
+      Mode: mode
+      NMostCommon: n_most_common
+      NumTrue: num_true
+      NumUnique: num_unique
+      PercentTrue: percent_true
+      Skew: skew
+      Std: std
+      Sum: sum
+      TimeSinceFirst: time_since_first
+      TimeSinceLast: time_since_last
+      Trend: trend
+      MonthOfCutoffPoint: month_of_cutoff_point
+    trans_primitives_vs:
+      Absolute: absolute
+      Percentile: percentile
+      TimeSince: time_since
+      Second: second
+      Minute: minute
+      Weekday: weekday
+      IsWeekend: is_weekend
+      Hour: hour
+      Day: day
+      Week: week
+      Month: month
+      Year: year
+      Diff: diff
+      TimeSincePrevious: time_since_previous
+  default_agg_primitives:
+#    - All
+#    - Any
+#    - AvgTimeBetween
+    - Count
+#    - Entropy
+#    - First
+    - Last
+    - Max
+    - Mean
+#    - Median
+    - Min
+    - Mode
+#    - NMostCommon
+    - NumTrue
+    - NumUnique
+    - PercentTrue
+#    - Skew
+#    - Std
+    - Sum
+#    - TimeSinceFirst
+    - TimeSinceLast
+#    - Trend
+    - MonthOfCutoffPoint
+  default_trans_primitives:
+#    - Absolute
+#    - Percentile
+#    - TimeSince
+#    - Second
+#    - Minute
+#    - Weekday
+#    - IsWeekend
+#    - Hour
+#    - Day
+#    - Week
+    - Month
+    - Year
+    - Diff
+#    - TimeSincePrevious
+  default_where_primitives:
+    - Count
+    - Sum
+model_training:
+  model_eval_key_value:
+    classifier:
+      roc_curve_path: 1
+      cumulative_gain_curve_path: 2
+      model_profit_report_classifier_df_path: 3
+      confusion_matrix_path: 4
+      auc: 6
+    regression:
+      pred_vs_true_curve_path: 11
+      cumulative_gain_curve_path: 2
+      model_profit_report_classifier_df_path: 3
+      r2: 14
+      mae: 15
+      mse: 16
+  model_split_key_value:
+    classifier:
+      train: 1
+      test: 2
+    regression:
+      train: 1
+      test: 2
+
+

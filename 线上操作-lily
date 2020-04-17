@@ -1,0 +1,6 @@
+source activate py.ml
+
+rsync  -e 'ssh -p 22' -av --chown=lanmuda:lanmuda --delete --exclude '.git' /Users/mjiang/0lan-lanmudata/0lan-super4sshop/0lan-super4sshop/ mlplat@lily:/home/
+
+
+

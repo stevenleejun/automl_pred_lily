@@ -1,0 +1,17 @@
+源码修改：
+/Users/mjiang/anaconda3/lib/python3.6/site-packages/featuretools/computational_backends/calculate_feature_matrix.py
+    if verbose:
+        tqdm_options.update({'disable': False})
+        if isinstance(verbose, str):
+            tqdm_options.update({'file': open(verbose, mode='a')})
+
+/Users/mjiang/anaconda3/lib/python3.6/site-packages/ibis/config_init.py 51
+with cf.config_prefix('impala'):
+    cf.register_option('temp_db', 'default', impala_temp_db_doc)
+    cf.register_option(
+        'temp_hdfs_path', '/tmp', impala_temp_hdfs_path_doc
+    )
+
+
+vim anaconda3/lib/python3.7/site-packages/distributed/distributed.yaml
+

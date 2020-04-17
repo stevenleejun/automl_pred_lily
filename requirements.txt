@@ -1,0 +1,25 @@
+ pip install requests==2.22.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install webargs==5.5.2 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install matplotlib==3.1.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install PyMySQL==0.9.3 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install catboost==0.17.5 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install seaborn==0.9.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install Flask==1.0.3 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install Flask_Cors==3.0.8 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install dask==2.10.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install pandas==0.25.3 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install xlutils==2.0.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install featuretools==0.13.2 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install psycopg2_binary==2.8.3 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install scikit_plot==0.3.7 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install Flask_RESTful==0.3.7 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install scipy==1.2.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install SQLAlchemy==1.3.5 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install tqdm==4.32.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install xlrd==1.2.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install numpy==1.16.4 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install mlxtend==0.17.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install python_dateutil==2.8.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install scikit_learn==0.22.2.post1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ pip install PyYAML==5.3 -i https://pypi.tuna.tsinghua.edu.cn/simple
+

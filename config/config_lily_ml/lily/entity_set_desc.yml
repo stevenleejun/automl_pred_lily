@@ -1,0 +1,90 @@
+entity_set_desc:
+  - entity_name: t_cdp_f_member_1_2
+    index:
+      - uni_car_id
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string
+  - entity_name: dev_ml_dim_part_id
+    index:
+      - uni_part_id
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string
+  - entity_name: dev_ml_repair_order
+    time_index: repair_date
+    parent_entity:
+      - entity_name: t_cdp_f_member_1_2
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string
+  - entity_name: dev_ml_repair_order_part_detail
+    time_index: repair_date
+    parent_entity:
+      - entity_name: t_cdp_f_member_1_2
+      - entity_name: dev_ml_dim_part_id
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string
+  - entity_name: dev_ml_repair_order_account
+    time_index: repair_date
+    parent_entity:
+      - entity_name: t_cdp_f_member_1_2
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string
+  - entity_name: dev_ml_repair_order_item_detail
+    time_index: repair_date
+    parent_entity:
+      - entity_name: t_cdp_f_member_1_2
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string

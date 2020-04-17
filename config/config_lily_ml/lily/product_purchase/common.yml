@@ -1,0 +1,142 @@
+project_id: lily_product_purchase
+business_desc:
+  problem_type: product_purchase
+  customer_entity: t_cdp_f_member_1_2
+  behavior_entity: t_cdp_f_member_order_rank_2_6
+  product_entity: t_cdp_f_sku_info
+  target_definition:
+    product_purchase_para:
+      product_column: dalei_name
+      product_list:
+        - 连衣裙/连体裤
+        - 套头衫
+        - 衬衫
+        -
+label_desc:
+  cutoff_point:
+    cutoff_day: 1
+    cutoff_num: 1
+    cutoff_last_date:
+  lead_time_window:
+    lead_time_window_unit: days
+    lead_time_window: 0
+  prediction_window:
+    prediction_window_unit: months
+    prediction_window: 1
+  sample_filtering_window:
+    sample_filtering_window_unit: months
+    sample_filtering_window: 12
+  training_window:
+    training_window_unit: months
+    training_window: 24
+model_prediction_desc:
+  cutoff_last_date: 2019-09-22  # 预测的观察点，可不填，如果不填则预测当前时间点之前的一年所有会员未来1个月的购买情况
+result_saving_desc:
+  table_name: app_model_lily_product_purchase
+  insert_type: overwrite
+  db_info:
+    type: greenplum
+    host: '192.168.100.213'
+    port: 5432
+    user: 'gpadmin'
+    password: 'Lily20200115'
+    database: 'shsilkdatadev'
+    extra_para:
+      - para_name: schema
+        para_value: dm
+        para_value_type: string
+entity_set_desc:
+  - entity_name: t_cdp_f_member_1_2
+    sql: >
+      select
+            member_id
+            ,gender
+            ,birth_day
+            ,province_name
+            ,city_name
+            ,current_grade
+            ,reg_channel
+            ,reg_channel_I
+            ,reg_channel_II
+            ,register_time
+            ,register_shop_code
+            ,register_shop_name
+            ,register_sale_area_code
+            ,register_sale_area_name
+            ,register_branch_code
+            ,register_branch_name
+            ,register_store_calss
+            ,register_store_sale_level
+            ,first_order_store_code
+            ,first_order_channel
+            ,store_name
+            ,sale_area_code
+            ,sale_area_name
+            ,branch_code
+            ,branch_name
+            ,store_calss
+            ,store_sale_level
+            ,first_order_buy_date
+            ,first_order_buy_month_date
+            ,first_order_buy_year_date
+       from dm.t_cdp_f_member_1_2
+       where member_life_period<>'未消费'
+    index:
+      - member_id
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string
+  - entity_name: t_cdp_f_sku_info
+    index:
+      - sku
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string
+  - entity_name: t_cdp_f_store_info   # # #
+    index:
+      - store_code
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string
+  - entity_name: t_cdp_f_member_order_rank_2_6   # # #
+    sql: select * from dm.t_cdp_f_member_order_rank_2_6 where paytime>='2017-01-01' and member_id is not null
+    time_index: paytime
+    parent_entity:
+      - entity_name: t_cdp_f_member_1_2
+      - entity_name: t_cdp_f_sku_info
+      - entity_name: t_cdp_f_store_info
+    db_info:
+      type: greenplum
+      host: '192.168.100.213'
+      port: 5432
+      user: 'gpadmin'
+      password: 'Lily20200115'
+      database: 'shsilkdatadev'
+      extra_para:
+        - para_name: schema
+          para_value: dm
+          para_value_type: string

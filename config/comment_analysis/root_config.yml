@@ -1,0 +1,54 @@
+greenplum:
+    host: '192.168.100.213'
+    port: 5432
+    user: 'gpadmin'
+    password: 'Lily20200115'
+    database: 'shsilkdatadev'
+    extra_para:
+      - para_name: schema
+        para_value: dm
+        para_value_type: string
+resource:
+    stop_words_file: ../../resource/stop_words.txt
+    dict_file: ../../resource/user_dict.txt
+
+#
+#
+#
+#stop_words_file: '../data_model/stopwords.txt'
+#stop_words_file_forjieba: '../data_model/stopwords_forjieba.txt'
+#
+#dict_file: '../data_model/dict_self.txt'
+#keyword_ana_file: '../data_model/keyword_ana.csv'
+#snownlp_jiebafile: '../data_model/__init__.py'
+#snownlp_bayesfile: '../data_model/bayes.py'
+#
+#host_from: '10.10.2.155'
+#port_from: 21050
+#user_from: 'impala'
+#password_from: 'SM1vWAT0oz5lu'
+#
+#datasrc_sql: 'select * from src_tb.traderates_get'
+#datasrc_sql_add: "select * from src_tb.traderates_get where from_timestamp(created, 'yyyy-mm-dd')>='" + last_year_anaday + "'"
+#result_comment_table: 'base_traderates_comment_py'
+#result_keyword_table: 'base_traderates_comment_keyword_py'
+#data_base_re: 'base_data'
+#
+#impala_wbatch: 1000
+#
+#min_df: 100
+#keyword_top: 20
+#batch: 10000  #每次结果处理的批次大小
+#
+#threshold_neg: 0.3
+#threshold_pos: 0.7
+#
+## model_tfidf_records: 1000000
+#
+#
+#
+#data_columns: [
+#    'oid', 'tid', 'r0le', 'buyer_nick', 'shop_name', 'result', 'created',
+#    'item_title', 'item_price', 'content', 'reply', 'num_iid', 'timestamp_v',
+#    'month'
+#]

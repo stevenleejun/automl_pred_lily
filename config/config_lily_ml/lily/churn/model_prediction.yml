@@ -1,0 +1,3 @@
+entity_set_data_desc:
+  entity_set_data_url_project_id: lily_churn
+#  is_persist_entity_set_data: True  # 保存数据
